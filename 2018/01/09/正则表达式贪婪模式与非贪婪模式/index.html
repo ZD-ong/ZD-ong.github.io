@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6882087-279722c81e6c3abc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6882087-7025499fda3d72b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6882087-b8a17aff3fb3d138.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-09T13:12:58.885Z">
+<meta property="og:updated_time" content="2018-01-11T14:27:45.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式贪婪模式与非贪婪模式">
 <meta name="twitter:description" content="什么是正则表达式的贪婪模式和非贪婪模式？  我们先从例子入手：12var str = &amp;apos;a &amp;quot;witch&amp;quot; and her &amp;quot;boom&amp;quot; is one&amp;apos;;str.match(/&amp;quot;.*&amp;quot;/g); 原本想要匹配的字符为&amp;quot;witch&amp;quot;和&amp;quot;broom&amp;quot;两个字符串，运行以上的例子看看运行">
@@ -319,7 +319,7 @@
 </blockquote>
 <p>我们先从例子入手：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;a &quot;witch&quot; and her &quot;boom&quot; is one&apos;;</span><br><span class="line">str.match(/&quot;.*&quot;/g);</span><br></pre></td></tr></table></figure></p>
 <p>原本想要匹配的字符为<code>&quot;witch&quot;</code>和<code>&quot;broom&quot;</code>两个字符串，运行以上的例子看看运行结果：<br><img src="http://upload-images.jianshu.io/upload_images/6882087-00dbe45fae3413a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>发现匹配的是<code>&quot;witch&quot; and her &quot;broom&quot;</code>这个字符串，之所以出现这个结果，是因为正则表达式的贪婪模式在起作用。</p>
-<h3 id="查找算法"><a href="#查找算法" class="headerlink" title="查找算法"></a>查找算法</h3><p>我们假设自己是正则引擎，模拟一下搜索实现的过程。<br>正则引擎先从字符串的第0位开始搜索。</p>
+<h3 id="查找算法"><a href="#查找算法" class="headerlink" title="查找算法"></a>查找算法</h3><p>我们假设自己是正则引擎，模拟一下搜索实现的过程。<br>正则引擎先从字符串的第0位开始搜索。<br><a id="more"></a></p>
 <ol>
 <li>第一个查找字符是<code>&quot;</code>，正则在第三位匹配到了它：<br><img src="http://upload-images.jianshu.io/upload_images/6882087-30b6ee86ded28547.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 <li>引擎尝试匹配正则的剩余部分，第二个字符是<code>.</code>，它代表任意字符。隐藏匹配到了<code>w</code>：<br><img src="http://upload-images.jianshu.io/upload_images/6882087-f6e5a93ed217e892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
