@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6882087-6f5a8e8e3675cda7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6882087-0d036a6baf3b87ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6882087-ecef772618a42a04.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2018-01-12T15:08:07.145Z">
+<meta property="og:updated_time" content="2018-01-12T15:10:10.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浮动与定位">
 <meta name="twitter:description" content="浮动 float属性最初只是用于浮动图像内的文本块，但是现在它已成为在网页上创建多列布局的最常用工具之一。当元素设置浮动属性后，会脱离正常文档流，从而影响到其他元素在页面上的布局排列，先不要着急，总会有好的解决办法。本文将阐述它的有关知识。  浮动的起源最初，引入float属性是为了能让web开发人员实现简单的布局，包括在一列文本中浮动的图像，文字环绕在他的左边或右边。通常在报纸上可以看到这样的布">
@@ -314,7 +314,7 @@
 </blockquote>
 <h3 id="浮动的起源"><a href="#浮动的起源" class="headerlink" title="浮动的起源"></a>浮动的起源</h3><p>最初，引入<code>float</code>属性是为了能让web开发人员实现简单的布局，包括在一列文本中浮动的图像，文字环绕在他的左边或右边。通常在报纸上可以看到这样的布局。</p>
 <p>但web开发人员很快意识到，它可以浮动任何东西，不仅仅是图像，所以浮动的使用范围扩大了。</p>
-<p>现在，浮动通常用来创建整个网站的布局，其中包括浮动多列信息，因此他们彼此并排放置（默认行为是列彼此之间的排列顺序和它们在html源中）。浮动的兼容性很好，可以支持到IE4。<br>&lt; !–more–&gt;</p>
+<p>现在，浮动通常用来创建整个网站的布局，其中包括浮动多列信息，因此他们彼此并排放置（默认行为是列彼此之间的排列顺序和它们在html源中）。浮动的兼容性很好，可以支持到IE4。<br><a id="more"></a></p>
 <h3 id="浮动的特征"><a href="#浮动的特征" class="headerlink" title="浮动的特征"></a>浮动的特征</h3><ul>
 <li>浮动元素会脱离普通文档流，沿着容器的左侧和右侧放置，碰到另一个浮动元素时或容器边缘会停下来。行内元素使用<code>float</code>属性后，具有块级元素的特征，可以对其设置宽高及margin(<a href="http://www.jianshu.com/p/3723caccfeff" target="_blank" rel="noopener">块级元素与行内元素有什么区别</a>中有相关介绍)。<h5 id="普通-正常文档流："><a href="#普通-正常文档流：" class="headerlink" title="普通/正常文档流："></a>普通/正常文档流：</h5>浏览器根据元素在HTML中出现的位置读取，再按照元素的和模型呈现，具体表现为块级元素从上至下、行内元素在每行中按照从左至右的依次摆放元素。每个元素都会再HTML中占据一个位置，占用的大小和位置由盒模型来决定。<br><img src="http://upload-images.jianshu.io/upload_images/6882087-e21523145c491e5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>从图中可以看到，当我们给box1设置右浮动后，box1就脱离了<strong>普通文档流</strong>，下面的块元素依次上移占据了box1原有的位置。它造成的一个常见后果就是：<strong>其父容器（元素）将得不到脱离普通文档流的子元素高度；即当元素设置了浮动后，它的父元素高度会塌陷。</strong></li>
 <li>如果没有足够的空间可供浮动，这个浮动元素会跳到下一行，直到有足够的空间位置。<br><img src="http://upload-images.jianshu.io/upload_images/6882087-709bf8f6cdbb6b5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>从图中可以看到浮动元素依次排列，但当位置不够box3的宽度时，box3会在下一行可以容纳其宽度的位置浮动。且浮动元素之间不会产生重叠，说明：<strong>相同级别的浮动元素很安全，不用担心会与其它同级别元素相互重叠。而利用position定位的时候很容易出现元素相互覆盖的情况</strong></li>
