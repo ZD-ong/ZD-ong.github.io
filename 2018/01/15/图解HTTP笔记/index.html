@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/01/15/5a5ccdf578ad0.png">
 <meta property="og:image" content="https://i.loli.net/2018/01/16/5a5cd21050cbe.png">
 <meta property="og:image" content="https://i.loli.net/2018/01/16/5a5cd2fa4d397.png">
-<meta property="og:updated_time" content="2018-01-15T16:45:47.803Z">
+<meta property="og:updated_time" content="2018-01-15T16:46:55.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解HTTP笔记">
 <meta name="twitter:description" content="第一章 了解 Web 及网络基础1.1 使用 HTTP 协议访问 Web当我们在浏览器地址输入 URL 敲下回车，根据 Web 浏览器地址栏中指定的URL，Web 浏览器从 Web 服务器端获取文件资源（resource）等信息，从而显示出 Web 页面。从客户端到服务器端等一系列运作流程，使用的就是HTTP协议。Web 是建立在 HTTP 协议上通信的。 1.2 HTTP 的诞生1989年3月，">
@@ -402,8 +402,9 @@
 <li>动词有 GET POST PUT PATCH DELETE HEAD OPTIONS 等</li>
 <li>这里的路径包括「查询参数」，但不包括「锚点」</li>
 <li>如果你没有写路径，那么路径默认为 /</li>
-<li>第 2 部分中的 Content-Type 标注了第 4 部分的格式<h2 id="3-3-编码提升传输速率"><a href="#3-3-编码提升传输速率" class="headerlink" title="3.3 编码提升传输速率"></a>3.3 编码提升传输速率</h2>HTTP 在传输数据时可以按照数据原貌直接传输，但也可以在传输过程中通过编码提升传输速率（优：有效地处理大量的访问请求。缺：消耗更多的 CPU 等资源）。</li>
+<li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li>
 </ul>
+<h2 id="3-3-编码提升传输速率"><a href="#3-3-编码提升传输速率" class="headerlink" title="3.3 编码提升传输速率"></a>3.3 编码提升传输速率</h2><p>HTTP 在传输数据时可以按照数据原貌直接传输，但也可以在传输过程中通过编码提升传输速率（优：有效地处理大量的访问请求。缺：消耗更多的 CPU 等资源）。</p>
 <ol>
 <li>内容编码：应用在实体内容上的编码格式，并保持实体信息原样压缩。内容编码后的实体由客户端接收并负责解码。<br>常用的内容编码：<ul>
 <li>gzip（GNU zip）</li>
