@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/01/15/5a5ccdf578ad0.png">
 <meta property="og:image" content="https://i.loli.net/2018/01/16/5a5cd21050cbe.png">
 <meta property="og:image" content="https://i.loli.net/2018/01/16/5a5cd2fa4d397.png">
-<meta property="og:updated_time" content="2018-01-15T16:43:26.382Z">
+<meta property="og:updated_time" content="2018-01-15T16:45:47.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图解HTTP笔记">
 <meta name="twitter:description" content="第一章 了解 Web 及网络基础1.1 使用 HTTP 协议访问 Web当我们在浏览器地址输入 URL 敲下回车，根据 Web 浏览器地址栏中指定的URL，Web 浏览器从 Web 服务器端获取文件资源（resource）等信息，从而显示出 Web 页面。从客户端到服务器端等一系列运作流程，使用的就是HTTP协议。Web 是建立在 HTTP 协议上通信的。 1.2 HTTP 的诞生1989年3月，">
@@ -392,11 +392,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /image/ HTTP/1.1</span><br><span class="line">Host: hackr.jp</span><br><span class="line">Cookie: sid=1342077140226724</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>服务器端发现客户端发送过来的 Cookie 后，会去检查究竟是从哪一个客户端发来的连接请求，然后对比服务器上的记录，最后得到之前的状态信息。<br><img src="https://i.loli.net/2018/01/15/5a5ccdf578ad0.png" alt="Cookie 交互场景"></p>
-<h1 id="第三章-HTTP-报文内的-HTTP-信息"><a href="#第三章-HTTP-报文内的-HTTP-信息" class="headerlink" title="第三章 HTTP 报文内的 HTTP 信息"></a>第三章 HTTP 报文内的 HTTP 信息</h1><h2 id="3-1-HTTP-报文"><a href="#3-1-HTTP-报文" class="headerlink" title="3.1 HTTP 报文"></a>3.1 HTTP 报文</h2><p>用于 HTTP 协议交互的信息被称为 HTTP 报文。<br><img src="https://i.loli.net/2018/01/16/5a5cd21050cbe.png" alt="HTTP 报文的结构"></p>
-<h2 id="3-2-请求报文及响应报文的结构"><a href="#3-2-请求报文及响应报文的结构" class="headerlink" title="3.2 请求报文及响应报文的结构"></a>3.2 请求报文及响应报文的结构</h2><p><img src="https://i.loli.net/2018/01/16/5a5cd2fa4d397.png" alt="请求报文（上）和响应报文（下）的实例"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//请求的格式</span><br><span class="line">1 动词 路径 协议/版本</span><br><span class="line">2 Key1: value1</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Key3: value3</span><br><span class="line">2 Content-Type: application/x-www-form-urlencoded</span><br><span class="line">2 Host: www.baidu.com</span><br><span class="line">2 User-Agent: curl/7.54.0</span><br><span class="line">3 </span><br><span class="line">4 要上传的数据</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h1 id="第三章-HTTP-报文内的-HTTP-信息"><a href="#第三章-HTTP-报文内的-HTTP-信息" class="headerlink" title="第三章 HTTP 报文内的 HTTP 信息"></a>第三章 HTTP 报文内的 HTTP 信息</h1><h2 id="3-1-HTTP-报文"><a href="#3-1-HTTP-报文" class="headerlink" title="3.1 HTTP 报文"></a>3.1 HTTP 报文</h2><p>用于 HTTP 协议交互的信息被称为 HTTP 报文。<br><img src="https://i.loli.net/2018/01/16/5a5cd21050cbe.png" alt="HTTP 报文的结构"></p>
+<h2 id="3-2-请求报文及响应报文的结构"><a href="#3-2-请求报文及响应报文的结构" class="headerlink" title="3.2 请求报文及响应报文的结构"></a>3.2 请求报文及响应报文的结构</h2><p><img src="https://i.loli.net/2018/01/16/5a5cd2fa4d397.png" alt="请求报文（上）和响应报文（下）的实例"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//请求的格式</span><br><span class="line">1 动词 路径 协议/版本</span><br><span class="line">2 Key1: value1</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Key3: value3</span><br><span class="line">2 Content-Type: application/x-www-form-urlencoded</span><br><span class="line">2 Host: www.baidu.com</span><br><span class="line">2 User-Agent: curl/7.54.0</span><br><span class="line">3 </span><br><span class="line">4 要上传的数据</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）</li>
 <li>第三部分永远都是一个回车（\n）</li>
