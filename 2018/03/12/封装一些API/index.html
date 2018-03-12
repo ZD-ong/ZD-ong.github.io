@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="API," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="第二篇测试博客这是二级标题1&amp;lt;p&amp;gt;代码字段&amp;lt;/p&amp;gt;">
+<meta name="description" content="用原生JS封装一些常用API  获取所有兄弟元素 123456789101112131415function getSiblings(node)&amp;#123;    var allChildren = node.parentNode.children    //这只是一个哈希，伪数组    var array = &amp;#123;        length: 0    &amp;#125;    for(le">
+<meta name="keywords" content="API">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第二篇博客">
-<meta property="og:url" content="http://yoursite.com/2018/01/03/第二篇博客/index.html">
+<meta property="og:title" content="封装一些API">
+<meta property="og:url" content="http://yoursite.com/2018/03/12/封装一些API/index.html">
 <meta property="og:site_name" content="和元宝共同成长的日子">
-<meta property="og:description" content="第二篇测试博客这是二级标题1&amp;lt;p&amp;gt;代码字段&amp;lt;/p&amp;gt;">
+<meta property="og:description" content="用原生JS封装一些常用API  获取所有兄弟元素 123456789101112131415function getSiblings(node)&amp;#123;    var allChildren = node.parentNode.children    //这只是一个哈希，伪数组    var array = &amp;#123;        length: 0    &amp;#125;    for(le">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T13:40:11.395Z">
+<meta property="og:updated_time" content="2018-03-12T15:57:42.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第二篇博客">
-<meta name="twitter:description" content="第二篇测试博客这是二级标题1&amp;lt;p&amp;gt;代码字段&amp;lt;/p&amp;gt;">
+<meta name="twitter:title" content="封装一些API">
+<meta name="twitter:description" content="用原生JS封装一些常用API  获取所有兄弟元素 123456789101112131415function getSiblings(node)&amp;#123;    var allChildren = node.parentNode.children    //这只是一个哈希，伪数组    var array = &amp;#123;        length: 0    &amp;#125;    for(le">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/03/第二篇博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/12/封装一些API/"/>
 
 
 
 
 
-  <title>第二篇博客 | 和元宝共同成长的日子</title>
+  <title>封装一些API | 和元宝共同成长的日子</title>
   
 
 
@@ -242,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/第二篇博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/封装一些API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="左冬">
@@ -259,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第二篇博客</h1>
+          <h1 class="post-title" itemprop="name headline">封装一些API</h1>
         
 
         <div class="post-meta">
@@ -271,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T21:39:02+08:00">
-                2018-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T21:43:46+08:00">
+                2018-03-12
               </time>
             
 
@@ -309,7 +310,26 @@
       
 
       
-        <h1 id="第二篇测试博客"><a href="#第二篇测试博客" class="headerlink" title="第二篇测试博客"></a>第二篇测试博客</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;代码字段&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+        <p>用原生JS封装一些常用API</p>
+<ol>
+<li><p>获取所有兄弟元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function getSiblings(node)&#123;</span><br><span class="line">    var allChildren = node.parentNode.children</span><br><span class="line"></span><br><span class="line">    //这只是一个哈希，伪数组</span><br><span class="line">    var array = &#123;</span><br><span class="line">        length: 0</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i =0;i &lt; allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== node)&#123;</span><br><span class="line">            array[array.length] = allChildren[i]</span><br><span class="line">            array.length +=1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给一个节点添加多个Class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,classes)&#123;</span><br><span class="line">    for(let key in classes)&#123;</span><br><span class="line">        var value = classes[key]</span><br><span class="line">        if(value)&#123;</span><br><span class="line">            node.classList.add(key)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            node.classList.remove(key)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如何使用封装的API?<br>命名空间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.newDom = &#123;&#125;</span><br><span class="line">newDom.getSiblings(node)</span><br><span class="line">newDom.addClass(node,&#123;a:true,b:false,c:true&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>为了方便使用，将方法写到原型上（修改Node的公有方法）:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.getSiblings = function()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">Node.prototype.addClass = function()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>就可以直接使用：<br>node.getSiblings()<br>node.addClass()<br><strong>但是方法并不能获取节点，再做一点改进,将所有node改成this，建立连接。(省略node参数)</strong></p>
+<ol>
+<li><p>node.getSiblings()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.getSiblings = function()&#123;</span><br><span class="line">    var allChildren = this.parentNode.children</span><br><span class="line"></span><br><span class="line">    var array = &#123;</span><br><span class="line">        length: 0</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i =0;i &lt; allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== this)&#123;</span><br><span class="line">            array[array.length] = allChildren[i]</span><br><span class="line">            array.length +=1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node.addClass()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.addClass = function()&#123;</span><br><span class="line">    classes.forEach((value)=&gt; this.classList.add(value))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
     
@@ -324,6 +344,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+        </div>
+      
 
       
       
@@ -333,8 +359,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/03/开博大吉/" rel="next" title="开博大吉">
-                <i class="fa fa-chevron-left"></i> 开博大吉
+              <a href="/2018/03/01/烧脑的-proto-和protoype/" rel="next" title="烧脑的__proto__和protoype">
+                <i class="fa fa-chevron-left"></i> 烧脑的__proto__和protoype
               </a>
             
           </div>
@@ -342,10 +368,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/07/计算机是如何存储数据的/" rel="prev" title="计算机是如何存储数据的">
-                计算机是如何存储数据的 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -397,17 +419,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -458,22 +471,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二篇测试博客"><span class="nav-number">1.</span> <span class="nav-text">第二篇测试博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是二级标题"><span class="nav-number">1.1.</span> <span class="nav-text">这是二级标题</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

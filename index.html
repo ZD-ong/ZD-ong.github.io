@@ -242,6 +242,144 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/封装一些API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="左冬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="和元宝共同成长的日子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/12/封装一些API/" itemprop="url">封装一些API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T21:43:46+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>用原生JS封装一些常用API</p>
+<ol>
+<li><p>获取所有兄弟元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function getSiblings(node)&#123;</span><br><span class="line">    var allChildren = node.parentNode.children</span><br><span class="line"></span><br><span class="line">    //这只是一个哈希，伪数组</span><br><span class="line">    var array = &#123;</span><br><span class="line">        length: 0</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i =0;i &lt; allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== node)&#123;</span><br><span class="line">            array[array.length] = allChildren[i]</span><br><span class="line">            array.length +=1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给一个节点添加多个Class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,classes)&#123;</span><br><span class="line">    for(let key in classes)&#123;</span><br><span class="line">        var value = classes[key]</span><br><span class="line">        if(value)&#123;</span><br><span class="line">            node.classList.add(key)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            node.classList.remove(key)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如何使用封装的API?<br>命名空间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.newDom = &#123;&#125;</span><br><span class="line">newDom.getSiblings(node)</span><br><span class="line">newDom.addClass(node,&#123;a:true,b:false,c:true&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>为了方便使用，将方法写到原型上（修改Node的公有方法）:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.getSiblings = function()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">Node.prototype.addClass = function()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>就可以直接使用：<br>node.getSiblings()<br>node.addClass()<br><strong>但是方法并不能获取节点，再做一点改进,将所有node改成this，建立连接。(省略node参数)</strong></p>
+<ol>
+<li><p>node.getSiblings()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.getSiblings = function()&#123;</span><br><span class="line">    var allChildren = this.parentNode.children</span><br><span class="line"></span><br><span class="line">    var array = &#123;</span><br><span class="line">        length: 0</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i =0;i &lt; allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== this)&#123;</span><br><span class="line">            array[array.length] = allChildren[i]</span><br><span class="line">            array.length +=1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node.addClass()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.addClass = function()&#123;</span><br><span class="line">    classes.forEach((value)=&gt; this.classList.add(value))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/烧脑的-proto-和protoype/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1367,125 +1505,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/开博大吉/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="左冬">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="和元宝共同成长的日子">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/03/开博大吉/" itemprop="url">开博大吉</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T21:27:52+08:00">
-                2018-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="测试博客，是否能正常显示"><a href="#测试博客，是否能正常显示" class="headerlink" title="测试博客，是否能正常显示"></a>测试博客，是否能正常显示</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1536,7 +1555,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1549,7 +1568,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
