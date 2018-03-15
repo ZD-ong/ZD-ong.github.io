@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="和元宝共同成长的日子">
 <meta property="og:description" content="用原生JS封装一些常用API  获取所有兄弟元素 123456789101112131415function getSiblings(node)&amp;#123;    var allChildren = node.parentNode.children    //这只是一个哈希，伪数组    var array = &amp;#123;        length: 0    &amp;#125;    for(le">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T05:24:15.585Z">
+<meta property="og:updated_time" content="2018-03-15T05:32:42.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="封装一些API">
 <meta name="twitter:description" content="用原生JS封装一些常用API  获取所有兄弟元素 123456789101112131415function getSiblings(node)&amp;#123;    var allChildren = node.parentNode.children    //这只是一个哈希，伪数组    var array = &amp;#123;        length: 0    &amp;#125;    for(le">
@@ -333,7 +333,7 @@
 </li>
 </ol>
 <p>仔细想想，上面Node原型的方法，有可能在不经意间被覆盖，所以安全起见我们可以再重写一个Node构造函数，比如Node2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 = function(node)&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        getSiblings: function()&#123;</span><br><span class="line">            var allChildren = node.parentNode.children</span><br><span class="line"></span><br><span class="line">            var array = &#123;</span><br><span class="line">                length: 0</span><br><span class="line">            &#125;</span><br><span class="line">            for(let i = 0; i &lt; allChildren.length; i++)&#123;</span><br><span class="line">                if(allChildren[i] !== node)&#123;</span><br><span class="line">                    array[array.length] = allChildren[i]</span><br><span class="line">                    array.length += 1</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return array</span><br><span class="line">        &#125;,</span><br><span class="line">        addClass: function(classes)&#123;</span><br><span class="line">            classes.forEach((value)=&gt; node.classList.add(value))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>就可以直接使用：<br>var node2 = Node2(node)<br>node2.getSiblings()<br>node2.addClass(‘a’,’b’,’c’)<br>//node 就是 node2，指的是你提供的一个节点</p>
+<p>就可以直接使用：<br>var node2 = Node2(node) //node2存了新建构造函数的地址<br>node2.getSiblings()<br>node2.addClass(‘a’,’b’,’c’)</p>
 
       
     </div>
